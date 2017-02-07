@@ -1,0 +1,130 @@
+<!---------------------------------------------
+-- Main Page template
+----------------------------------------------->
+
+<div id="main" ng-controller="main">
+    <div class="col-md-6">
+        <div class="statistic after-clear">
+            <div class="col-md-4">
+                <div class="form-title">
+                    <label>{{MVdata.vegetableName}} - {{MVdata.userName}}</label>
+                </div>
+                <div class="form-desc">
+                    <label>Choose the week you're interested in</label>
+                </div>
+                <div class="form-level">
+                    <div id="chartAsLevel"></div>
+                    <label ng-click="$parent.popup('ConfidenceLevel')">Confidence Level</label>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="form-calendar after-clear">
+                    <div class="col-md-12">
+                        <uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options" ng-change="sel()"></uib-datepicker>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="chartAsDay"></div>
+    </div>
+    <div class="col-md-3 detail">
+        <div class="day-info after-clear">
+            <div class="detail-title">
+                <h3>{{MVdata.dayName}}</h3>
+            </div>
+            <div class="detail-desc">
+                <ul>
+                    <li>
+                        <div class="col-md-7">
+                            <div class="price"><label>{{MVdata.High}}</label><sup class="cad">CAD</sup></div>
+                            <div class="price-desc">High</div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="high">
+                                <label class="high-icon">
+                                    <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                                </label>
+                                <label class="high-percent">{{MVdata.HighTrend}}%</label>
+                            </div>
+                            <div class="high-desc">above avg</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col-md-7">
+                            <div class="price"><label>{{MVdata.Low}}</label><sup class="cad">CAD</sup></div>
+                            <div class="price-desc">Low</div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="lower">
+                                <label class="lower-icon">
+                                    <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                                </label>
+                                <label class="lower-percent">{{MVdata.LowTrend}}%</label>
+                            </div>
+                            <div class="lower-desc">under avg</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col-md-7">
+                            <div class="price"><label>{{MVdata.Average}}</label><sup class="cad">CAD</sup></div>
+                            <div class="price-desc">Average</div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="high">
+                                <label class="high-icon">
+                                    <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                                </label>
+                                <label class="high-percent">{{MVdata.AverageTrend}}%</label>
+                            </div>
+                            <div class="high-desc">above avg</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col-md-7">
+                            <div class="index"><label ng-click="$parent.popup('FarmHealthIndex')">{{MVdata.FarmHealthIndex}}</label></div>
+                            <div class="index-desc">Farm Health Index</div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="lower">
+                                <label class="lower-icon">
+                                    <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                                </label>
+                                <label class="lower-percent">{{MVdata.IndexTrend}}%</label>
+                            </div>
+                            <div class="lower-desc">under last week</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="refresh-timer">
+            <div id="chartAsRefresh"></div>
+            <div class="chart-label"><label>{{chartDataAsRefreshPrint.h}}<sup>h</sup> {{chartDataAsRefreshPrint.m}}<sup>m</sup></label><span ng-click="$parent.popup('NextRefresh')">Next Refresh</span></div>
+        </div>
+    </div>
+    <div class="col-md-3 learnmore">
+        <img id="logo" src="./assets/images/logo.png"/>
+        <div class="learnmore-title">
+            <label>Learn More</label>
+            <span>Who What How</span>
+        </div>
+        <ul class="learnmore-links">
+            <li><a href="#" ng-click="$parent.popup('WhatIsThis')">What is this?</a></li>
+            <li><a href="#" ng-click="$parent.popup('WhoMadeIt')">Who made it?</a></li>
+            <li><a href="#" ng-click="$parent.popup('Why')">Why?</a></li>
+            <li><a href="#" ng-click="$parent.popup('HowDoesItWork')">How does it work?</a></li>
+            <li><a href="#" ng-click="$parent.popup('ContactUs')">Contact Us</a></li>
+        </ul>
+        <!--<div class="learnmore-api">
+            <a href="#">Premium version API</a>
+        </div>-->
+        <div class="learnmore-email">
+            <a href="#"><img src="./assets/images/email.png"/></a>
+        </div>
+    </div>
+    
+</div>
+
+
+
+

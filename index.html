@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<title>Build Simple Javascript Pricing Calculator</title>
+	<meta name = "viewport" content = "width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    <!-- --------------------------------------------
+      -- libraries
+      ----------------------------------------------->
+    
+	<!-- jQuery -->
+	<script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Angular JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
+	
+	<!-- Bootstrap -->
+    <script type = "text/javascript" src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+	<script type = "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap.min.js"></script>
+	<script type = "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.min.js"></script>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"/>
+    
+    <!-- Google Chart -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    <!-- Cycle Chart -->
+    <script type="text/javascript" src="./assets/lib/cycle-chart/d3.min.js"></script>
+    <script type="text/javascript" src="./assets/lib/cycle-chart/vizuly_core.min.js"></script>
+	<script type="text/javascript" src="./assets/lib/cycle-chart/vizuly_radialprogress.min.js"></script>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+    
+    <!-- Custom scrollbar -->
+    <link rel="stylesheet" href="./assets/lib/scrollbar/jquery.mCustomScrollbar.min.css"/>
+    <script src="./assets/lib/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="./assets/lib/scrollbar/scrollbars.min.js"></script>
+    
+    <!-- Custom Css -->
+    <link rel = "stylesheet" type = "text/css" href = "./assets/css/style.css"/>
+    
+</head>
+    
+<body ng-app="myVegetables" ng-controller="top">
+    <div id="wrap" class="container">
+        <div id="menu">
+            <a href="#" class="menu-ico" ng-click="popup('Main')"><span></span></a>
+        </div>
+        <div ng-view></div>
+    </div>
+    
+    <div id="popup" ng-class="showPopup">
+        <div class="popup-wrap">
+            <div class="popup-header" style="background-image: url({{poupHeader}})"><a href="#" id="popup-close" ng-click="showPopup=false"><i class="fa fa-times" aria-hidden="true"></i></a></div>
+            <div class="popup-body">
+                <div class="popup-title">{{poupTitle}}</div>
+                <div class="popup-contents" ng-scrollbars ng-scrollbars-config="scrollbarConfig">{{poupContents}}</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- --------------------------------------------
+      -- Custom 
+      ----------------------------------------------->
+    
+    <script type = "text/javascript" src = "./app/app.js"></script>
+    
+    <!-- Controller -->
+    <script type = "text/javascript" src = "./app/controllers/top.js"></script>
+    <script type = "text/javascript" src = "./app/controllers/main.js"></script>
+    
+    <!-- Factories -->
+    <!-- Directives --> 
+    
+    <!-- Services --> 
+    <script type = "text/javascript" src = "./app/services/service.js"></script> 
+    
+    <!-- Filters -->
+</body>
+</html>
