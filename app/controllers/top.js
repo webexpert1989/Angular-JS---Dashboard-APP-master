@@ -31,7 +31,7 @@
             
             // popup
             $scope.showPopup = "";
-            $scope.popup = function(id){
+            $scope.popup = function(id, hide){                
                 var msg = {
                     Main: {
                         title: "More vegetables",

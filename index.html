@@ -49,14 +49,14 @@
 <body ng-app="myVegetables" ng-controller="top">
     <div id="wrap" class="container">
         <div id="menu">
-            <a href="#" class="menu-ico" ng-click="popup('Main')"><span></span></a>
+            <a href="" class="menu-ico" ng-click="popup('Main')"><span></span></a>
         </div>
         <div ng-view></div>
     </div>
     
     <div id="popup" ng-class="showPopup">
         <div class="popup-wrap">
-            <div class="popup-header" style="background-image: url({{poupHeader}})"><a href="#" id="popup-close" ng-click="showPopup=false"><i class="fa fa-times" aria-hidden="true"></i></a></div>
+            <div class="popup-header" style="background-image: url({{poupHeader}})"><a href="" id="popup-close" ng-click="showPopup = ''"><i class="fa fa-times" aria-hidden="true"></i></a></div>
             <div class="popup-body">
                 <div class="popup-title">{{poupTitle}}</div>
                 <div class="popup-contents" ng-scrollbars ng-scrollbars-config="scrollbarConfig">{{poupContents}}</div>

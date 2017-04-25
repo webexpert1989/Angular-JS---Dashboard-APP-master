@@ -45,6 +45,7 @@
         // calendar
         $scope.today = function() {
             $scope.dt = new Date("2016-07-01");
+            
         };
         $scope.today();
 
@@ -77,7 +78,8 @@
         //////////////////////////////////////////////////////////////
         function selectDate(){
             var selDate = new Date($scope.dt);
-            selDate.setHours(0,0,0,0);
+            
+            selDate.setHours(0, 0, 0, 0);
             $scope.selectedDate = selDate.getTime();
             $scope.selectedDay = selDate.getDay();
             $scope.selectedWeek = $scope.selectedDate - $scope.selectedDay * 86400000;
@@ -93,8 +95,7 @@
                 
             } else {
                 console.log("no Data");
-                initData();
-                
+                initData();                
             }
 
             $scope.MVdata.chartDataAsDay = [["Day", ""]];
@@ -259,7 +260,7 @@
                 "data",
                 {}, 
                 function(response){
-                    var fields = [
+                 /*   var fields = [
                         "Timestamp",
                         "Date",
                         "ConfidenceLevel",
@@ -284,9 +285,15 @@
                                 $scope.MVall[d[0]][fields[f]] = d[f];
                             }
                         }
-                    }
+                    }*/
                 
+                    $scope.MVall = {};
+                    for(var i in response){
+                        var fixedTimestamp = parseInt(i) + (new Date().getTimezoneOffset() + 120 ) * 60000;
+                        $scope.MVall[fixedTimestamp] = response[i];
+                    }
                     console.log("data:", $scope.MVall);
+                
                     if($scope.loadedGchart){
                         initChart();
                         selectDate();                        
